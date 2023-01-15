@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tambah_transaksi">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="40dp"
+        android:text="TAMBAH \nTRANSAKSI"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/drop_transaksi"
+        android:layout_width="119dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="28dp"
+        android:entries="@array/transaksi_dropdown_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/etjudultransaksi"
+        android:layout_width="265dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/item_list_back"
+        android:hint="Judul"
+        android:paddingLeft="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drop_transaksi" />
+
+    <EditText
+        android:id="@+id/etHargatransaksi"
+        android:layout_width="265dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="232dp"
+        android:background="@drawable/item_list_back"
+        android:hint="Harga"
+        android:paddingLeft="10dp"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drop_transaksi" />
+
+    <EditText
+        android:id="@+id/etkettransaksi"
+        android:layout_width="265dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/item_list_back"
+        android:hint="Keterangan"
+        android:paddingLeft="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drop_transaksi" />
+
+    <Button
+        android:id="@+id/btDatetransaksi"
+        style="?android:spinnerStyle"
+        android:layout_width="157dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="20dp"
+        android:text="JAN 01 2023"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etHargatransaksi" />
+
+    <Button
+        android:id="@+id/bttambahtransaksi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/button_round"
+        android:text="tambah"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btDatetransaksi" />
+
+    <EditText
+        android:id="@+id/etjumlahtransaksi"
+        android:layout_width="265dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="164dp"
+        android:background="@drawable/item_list_back"
+        android:hint="Jumlah"
+        android:paddingLeft="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drop_transaksi" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

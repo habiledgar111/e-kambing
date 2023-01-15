@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">e-kambing2</string>
+    <string-array name="transaksi_dropdown_menu">
+        <item>MASUK</item>
+        <item>KELUAR</item>
+    </string-array>
+</resources>
