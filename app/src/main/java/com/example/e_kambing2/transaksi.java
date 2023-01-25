@@ -33,11 +33,6 @@ public class transaksi extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaksi);
-        String[] data = new String[10];
-        for (int i = 0;i<data.length;i++){
-            data[i] ="item"+i;
-        }
-
         ambildata();
 
         RecyclerView rec = findViewById(R.id.rec_transaksi);

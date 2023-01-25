@@ -16,6 +16,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,7 +32,9 @@ import java.util.TreeMap;
 import kotlin.collections.ArrayDeque;
 
 public class MainActivity extends AppCompatActivity {
-
+    FirebaseDatabase database = FirebaseDatabase.getInstance("https://e-kambing-default-rtdb.asia-southeast1.firebasedatabase.app/");
+    DatabaseReference dbref = database.getReference();
+    ArrayList<model_kambing> arraykambing = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +43,12 @@ public class MainActivity extends AppCompatActivity {
         Button tambah_transaksi = findViewById(R.id.bttambahtransaksi);
         rec.setHasFixedSize(true);
         rec.setLayoutManager(new LinearLayoutManager(this));
-        ArrayList<model_kambing> listdata = new ArrayList<>();
-        listdata.add(new model_kambing("kambing 000"));
-        listdata.add(new model_kambing("kambing 001"));
-        listdata.add(new model_kambing("kambing 002"));
-        recyclerview_adapter adapter = new recyclerview_adapter(listdata);
+//        ArrayList<model_kambing> listdata = new ArrayList<>();
+//        listdata.add(new model_kambing("kambing 000"));
+//        listdata.add(new model_kambing("kambing 001"));
+//        listdata.add(new model_kambing("kambing 002"));
+        ambildata();
+        recyclerview_adapter adapter = new recyclerview_adapter(arraykambing);
         rec.setAdapter(adapter);
 
         ImageView goat,home,transaksi;
@@ -66,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
         goat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toas = Toast.makeText(getApplicationContext(),"comming soon",Toast.LENGTH_LONG);
+                Intent intent = new Intent(getApplicationContext(), tambah_kambing.class);
+                startActivity(intent);
             }
         });
 
@@ -77,5 +87,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void ambildata() {
+        dbref.child("kambing").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot child : snapshot.getChildren()){
+                    arraykambing.add(child.getValue(model_kambing.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast toast = Toast.makeText(getApplicationContext(),"gagal mengambil data",Toast.LENGTH_LONG);
+                toast.show();
+            }
+        });
+
     }
 }
