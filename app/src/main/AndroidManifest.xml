@@ -16,6 +16,14 @@
         android:theme="@style/Theme.Ekambing2"
         tools:targetApi="31">
         <activity
+            android:name=".detail_kambing"
+            android:exported="false"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".edit_kambing"
             android:exported="false"
             android:parentActivityName=".MainActivity">

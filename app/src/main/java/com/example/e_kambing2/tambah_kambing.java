@@ -53,14 +53,17 @@ public class tambah_kambing extends AppCompatActivity {
                 dbref.child("kambing").push().setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
+                        model_transaksi modetrans = new model_transaksi("beli kambing","1",harga_k,("beli kambing "+nomer_k),"MASUK",btDate.getText().toString());
+                        dbref.child("transaksi").push().setValue(modetrans);
                         Toast toast1 = Toast.makeText(getApplicationContext(),model.nomer,Toast.LENGTH_LONG);
                         toast1.show();
-//                        finish();
+                        finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast toast2 = Toast.makeText(getApplicationContext(),"gagal masukan data",Toast.LENGTH_LONG);
+                        toast2.show();
                     }
                 });
 
