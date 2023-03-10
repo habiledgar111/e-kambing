@@ -10,14 +10,15 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="40dp"
         android:text="TAMBAH \nTRANSAKSI"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063" />
 
     <Spinner
         android:id="@+id/drop_transaksi"
@@ -34,11 +35,11 @@
         android:id="@+id/etjudultransaksi"
         android:layout_width="265dp"
         android:layout_height="55dp"
-        android:layout_marginStart="72dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/item_list_back"
         android:hint="Judul"
         android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drop_transaksi" />
 
@@ -46,12 +47,12 @@
         android:id="@+id/etHargatransaksi"
         android:layout_width="265dp"
         android:layout_height="55dp"
-        android:layout_marginStart="72dp"
         android:layout_marginTop="232dp"
         android:background="@drawable/item_list_back"
         android:hint="Harga"
-        android:paddingLeft="10dp"
         android:inputType="numberDecimal"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drop_transaksi" />
 
@@ -59,11 +60,11 @@
         android:id="@+id/etkettransaksi"
         android:layout_width="265dp"
         android:layout_height="55dp"
-        android:layout_marginStart="72dp"
         android:layout_marginTop="96dp"
         android:background="@drawable/item_list_back"
         android:hint="Keterangan"
         android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drop_transaksi" />
 
@@ -72,10 +73,10 @@
         style="?android:spinnerStyle"
         android:layout_width="157dp"
         android:layout_height="47dp"
-        android:layout_marginStart="124dp"
         android:layout_marginTop="20dp"
         android:text="JAN 01 2023"
         android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etHargatransaksi" />
 
@@ -83,22 +84,24 @@
         android:id="@+id/bttambahtransaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/button_round"
         android:text="tambah"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btDatetransaksi" />
+        app:layout_constraintTop_toBottomOf="@+id/btDatetransaksi"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/etjumlahtransaksi"
         android:layout_width="265dp"
         android:layout_height="55dp"
-        android:layout_marginStart="72dp"
         android:layout_marginTop="164dp"
         android:background="@drawable/item_list_back"
         android:hint="Jumlah"
         android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drop_transaksi" />
 

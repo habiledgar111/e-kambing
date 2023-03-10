@@ -56,10 +56,10 @@
                 android:id="@+id/tvrptransaksi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="200dp"
-                android:text="Rp 123"
+                android:layout_marginLeft="80dp"
+                android:text="Rp 1234567"
                 android:textColor="@color/black"
-                android:textSize="30dp" />
+                android:textSize="25dp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

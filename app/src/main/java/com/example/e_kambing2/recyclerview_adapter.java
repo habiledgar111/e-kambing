@@ -22,15 +22,17 @@ import java.util.ArrayList;
 
 public class recyclerview_adapter extends RecyclerView.Adapter<recyclerview_adapter.ViewHolder> {
     private ArrayList<model_kambing> listkambing;
+    private RecyclerviewInterface listener;
     static FirebaseDatabase database = FirebaseDatabase.getInstance("https://e-kambing-default-rtdb.asia-southeast1.firebasedatabase.app/");
     static DatabaseReference dbref = database.getReference();
-    public recyclerview_adapter(ArrayList<model_kambing> listkambing){
+    public recyclerview_adapter(ArrayList<model_kambing> listkambing,RecyclerviewInterface listener){
         this.listkambing = listkambing;
+        this.listener = listener;
     }
     public static class ViewHolder extends RecyclerView.ViewHolder{
     TextView tvedit,tvhapus,tvrawat,tvjudul;
     ImageView ivkambing;
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView,RecyclerviewInterface listener) {
             super(itemView);
             //tempat click listener pada item
             tvedit = itemView.findViewById(R.id.edit);
@@ -38,6 +40,19 @@ public class recyclerview_adapter extends RecyclerView.Adapter<recyclerview_adap
             tvhapus = itemView.findViewById(R.id.hapus);
             tvjudul = itemView.findViewById(R.id.item_judul);
             ivkambing = itemView.findViewById(R.id.item_photo);
+
+            //detal kambing
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int pos = getBindingAdapterPosition();
+                        if (pos != RecyclerView.NO_POSITION){
+                            listener.onItemClick(pos);
+                        }
+                    }
+                }
+            });
 
             tvedit.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -80,7 +95,7 @@ public class recyclerview_adapter extends RecyclerView.Adapter<recyclerview_adap
     @Override
     public recyclerview_adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,parent,false);
-        return new ViewHolder(view);
+        return new ViewHolder(view,listener);
     }
 
     @Override
@@ -92,4 +107,5 @@ public class recyclerview_adapter extends RecyclerView.Adapter<recyclerview_adap
     @Override
     public int getItemCount() {
         return listkambing.size();}
+
 }

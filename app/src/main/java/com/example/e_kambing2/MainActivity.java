@@ -31,7 +31,7 @@ import java.util.TreeMap;
 
 import kotlin.collections.ArrayDeque;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecyclerviewInterface{
     FirebaseDatabase database = FirebaseDatabase.getInstance("https://e-kambing-default-rtdb.asia-southeast1.firebasedatabase.app/");
     DatabaseReference dbref = database.getReference();
     ArrayList<model_kambing> arraykambing = new ArrayList<>();
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 //        listdata.add(new model_kambing("kambing 001"));
 //        listdata.add(new model_kambing("kambing 002"));
         ambildata();
-        recyclerview_adapter adapter = new recyclerview_adapter(arraykambing);
+        recyclerview_adapter adapter = new recyclerview_adapter(arraykambing,this);
         rec.setAdapter(adapter);
 
         ImageView goat,home,transaksi;
@@ -105,5 +105,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    //tempat intent data kambing
+    @Override
+    public void onItemClick(int position) {
+//        Intent inten = new Intent(getApplicationContext(),detail_kambing.class);
+//        inten.putExtra("model_kambing",arraykambing.get(position));
+//        startActivity(inten);
     }
 }
